@@ -5,10 +5,13 @@ $("#btn1").click(function(){
   $("#overlay").fadeIn();
 })
 $("#btn2").click(function(){
+  $("#btn2").hide();
+  $("#status").html("Sending..")
   $.ajax({
     url: "http://fvi-grad.com:4004/email",
     success:function(res){
       console.log(res);
+      $("#status").html(res);
     },
     method: "POST",
     data:{
